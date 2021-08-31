@@ -90,6 +90,23 @@ view: inventory_items {
     sql: ${TABLE}."SOLD_AT" ;;
   }
 
+measure: count_distinct_sku {
+  type: count_distinct
+  sql: ${product_sku} ;;
+}
+
+measure: total_cost {
+  type: sum
+  sql: ${cost} ;;
+  value_format_name: usd
+}
+
+measure: average_cost {
+  type: average
+  sql: ${cost} ;;
+  value_format_name: usd
+}
+
   measure: count {
     type: count
     drill_fields: [id, product_name, products.name, products.id, order_items.count]

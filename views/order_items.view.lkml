@@ -4,6 +4,7 @@ view: order_items {
   drill_fields: [id]
 
   dimension: id {
+    hidden: yes
     primary_key: yes
     type: number
     sql: ${TABLE}."ID" ;;
@@ -81,6 +82,34 @@ view: order_items {
     sql: ${TABLE}."SHIPPED_AT" ;;
   }
 
+  dimension: long_shipping_time {
+    description: "Yes means order took over 7 days to ship"
+    type: yesno
+    sql: ${days_shipping_times} > 7 ;;
+  }
+
+  dimension_group: shipping_times {
+    type: duration
+    intervals: [
+      hour,
+      day,
+      week
+    ]
+    sql_start: ${shipped_raw} ;;
+    sql_end: ${delivered_raw} ;;
+  }
+
+  dimension_group: fulfillment {
+    type: duration
+    intervals: [
+      hour,
+      day,
+      week]
+    sql_start: ${created_raw};;
+    sql_end: ${shipped_raw} ;;
+
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}."STATUS" ;;
@@ -93,6 +122,7 @@ view: order_items {
   }
 
   measure: count {
+    label: "Number of order items"
     type: count
     drill_fields: [detail*]
   }

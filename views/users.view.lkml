@@ -89,6 +89,19 @@ view: users {
     sql: ${TABLE}."ZIP" ;;
   }
 
+dimension: age_tier {
+  type: tier
+  tiers: [0, 10, 20, 30, 40, 50, 60, 70, 80]
+  style: integer
+  sql: ${age} ;;
+}
+
+dimension: location {
+  type:  location
+  sql_latitude: ${latitude} ;;
+  sql_longitude: ${longitude} ;;
+}
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, events.count, order_items.count]
