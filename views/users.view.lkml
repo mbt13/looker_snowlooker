@@ -81,7 +81,7 @@ view: users {
 
   dimension: from_cali {
     type: yesno
-    sql: ${TABLE}.state = "California";;
+    sql: ${state} = "California";;
   }
 
   dimension: traffic_source {
