@@ -1,5 +1,4 @@
 connection: "snowlooker"
-label: "Mo LookML Test"
 
 # include all the views
 include: "/views/**/*.view"
@@ -15,9 +14,7 @@ explore: distribution_centers {
   description: "This is a test of an explore description parameter"
 }
 
-explore: etl_jobs {
-  label: "ETL Jobs custom label"
-}
+explore: etl_jobs {}
 
 explore: events {
   join: users {
