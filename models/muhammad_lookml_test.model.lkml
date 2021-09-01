@@ -1,4 +1,5 @@
 connection: "snowlooker"
+label: "Mo LookML Test"
 
 # include all the views
 include: "/views/**/*.view"
@@ -10,9 +11,13 @@ datagroup: muhammad_lookml_test_default_datagroup {
 
 persist_with: muhammad_lookml_test_default_datagroup
 
-explore: distribution_centers {}
+explore: distribution_centers {
+  description: "This is a test of an explore description parameter"
+}
 
-explore: etl_jobs {}
+explore: etl_jobs {
+  label: "ETL Jobs custom label"
+}
 
 explore: events {
   join: users {
