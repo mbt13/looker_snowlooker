@@ -3,9 +3,9 @@ include: "/views/events.view.lkml"
 view: events_extend {
   extends: [events]
 
-  measure: first_order {
+  measure: first_id {
     type: min
-    sql: ${created_raw} ;;
+    sql: ${id} ;;
   }
 
   # # You can specify the table name if it's different from the view name:
