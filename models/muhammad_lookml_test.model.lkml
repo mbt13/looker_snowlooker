@@ -16,7 +16,7 @@ explore: distribution_centers {
 
 explore: etl_jobs {}
 
-explore: events_extend {}
+explore: events_view_extend {}
 
 explore: events {
   join: users {
@@ -24,6 +24,11 @@ explore: events {
     sql_on: ${events.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+  view_name: events
+}
+
+explore: events_explore_extend {
+  extends: [events]
 }
 
 explore: inventory_items {

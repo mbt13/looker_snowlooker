@@ -1,6 +1,6 @@
 include: "/views/events.view.lkml"
 
-view: events_extend {
+view: events_view_extend {
   extends: [events]
 
   measure: first_id {
