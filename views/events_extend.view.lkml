@@ -4,8 +4,8 @@ view: events_extend {
   extends: [events]
 
   measure: first_order {
-    type: sum_distinct
-    sql: MIN(${created_raw} ;;
+    type: min
+    sql: ${created_raw} ;;
   }
 
   # # You can specify the table name if it's different from the view name:
