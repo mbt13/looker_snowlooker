@@ -16,6 +16,8 @@ explore: distribution_centers {
 
 explore: etl_jobs {}
 
+explore: events_extend {}
+
 explore: events {
   join: users {
     type: left_outer
