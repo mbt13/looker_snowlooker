@@ -5,7 +5,7 @@ view: events_extend {
 
   measure: first_id {
     type: min
-    sql: ${id} ;;
+    sql: ${TABLE}."ID"  ;;
   }
 
   # # You can specify the table name if it's different from the view name:
